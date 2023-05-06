@@ -1,4 +1,5 @@
 import re
+from flask_ngrok import run_with_ngrok
 from flask import Flask, render_template, request
 
 app = Flask(__name__, template_folder='template')
@@ -74,4 +75,5 @@ def register():
         print(request.form['password'])
         return render_template('register.html', data=message)
 
-app.run(port=8000)
+run_with_ngrok(app)
+app.run()
